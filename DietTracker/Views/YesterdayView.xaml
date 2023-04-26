@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DietTracker.Views.YesterdayView"
+             Title="Yesterday"
+             Shell.NavBarIsVisible="false">
+    <Grid>
+
+        <Grid IsVisible="{Binding ShowNoHistory}">
+            <Label 
+                Text="No Diet History"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        </Grid>
+
+        <Grid IsVisible="{Binding ShowYesterday}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label 
+                Grid.Row="0"
+                Text="{Binding DietDayModel.DateString}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Margin="0, 20"
+                FontSize="32"/>
+
+            <ListView Grid.Row="1" ItemsSource="{Binding DietDayModel.Entries}" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding TimeString}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate> 
+            </ListView>
+        </Grid>
+    </Grid>
+</ContentPage>

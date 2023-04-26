@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:System="clr-namespace:System;assembly=System.Core"
+             x:Class="DietTracker.Views.TodayView"
+             Title="Today"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="0">
+            <Label 
+                Text="{Binding Date}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Margin="0, 20"
+                FontSize="32"/>
+            
+            <Entry Text="{Binding FoodEntry, Mode=TwoWay}" Placeholder="Dish Name" />
+            <Button Text="Add" Command="{Binding AddDietEntryCommand}"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1" Margin="0, 10" BackgroundColor="AliceBlue">
+            <CollectionView ItemsSource="{Binding Entries}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Margin="0, 5">
+                            <VerticalStackLayout.Resources>
+                                <x:Boolean x:Key="ShowUpdateVar">false</x:Boolean>
+                            </VerticalStackLayout.Resources>
+                            
+                            <HorizontalStackLayout>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding TimeString}"/>
+                                </VerticalStackLayout>
+
+                                <Button Text="Edit" Command="{Binding ToggleShowUpdateCommand}"/>
+                                <Button Text="Remove" Command="{Binding RemoveDietEntryCommand}"/>
+                            </HorizontalStackLayout>
+
+                            <VerticalStackLayout IsVisible="{Binding ShowUpdate}">
+                                <Entry Text="{Binding FoodEntryUpdate, Mode=TwoWay}" Placeholder="Updated Dish Name"/>
+                                <Button Text="Update" Command="{Binding UpdateEntryNameCommand}"/>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>            
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

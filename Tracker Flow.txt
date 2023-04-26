@@ -1,0 +1,14 @@
+INITIALIZATION
+1 Get Data from Store
+
+2 Check if Trackers current day has not ended
+
+2.1 If Trackers current day ended push it into history and create new day
+
+2.2 If Trackers current day is still goin gon. all data should be loaded correctly
+
+CREATING NEW DAY
+
+1 Get current date
+
+2 Create new Day model
