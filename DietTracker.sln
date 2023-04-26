@@ -11,12 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietTracker.Models", "DietT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Tracker", "Test.Tracker\Test.Tracker.csproj", "{162295E9-A03C-4CA8-9714-09A56A9742C4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EEA79BC7-D841-4DA9-96A3-8C1BF0AE96D4}"
-	ProjectSection(SolutionItems) = preProject
-		Tracker Flow.txt = Tracker Flow.txt
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietTracker.MockStore", "DietTracker.MockStore\DietTracker.MockStore.csproj", "{F220811E-2AC2-4146-A07E-0E2370774516}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietTracker.MockStore", "DietTracker.MockStore\DietTracker.MockStore.csproj", "{F220811E-2AC2-4146-A07E-0E2370774516}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
